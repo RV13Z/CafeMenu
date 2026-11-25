@@ -1,1 +1,22 @@
+version: 2.1
 
+jobs:
+  build-and-compile:
+    docker:
+      - image: cimg/openjdk:17.0
+    steps:
+      - checkout
+      - run:
+          name: Crear directorio de salida
+          command: mkdir -p bin
+      - run:
+          name: Compilar proyecto Java
+          command: javac -encoding UTF-8 -d bin src/patrones_de_diseño_proyecto/*.java
+      - store_artifacts:
+          path: bin
+          destination: compiled-classes
+
+workflows:
+  java-ci:
+    jobs:
+      - build-and-compile

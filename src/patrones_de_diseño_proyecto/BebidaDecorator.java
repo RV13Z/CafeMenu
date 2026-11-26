@@ -1,4 +1,4 @@
-// package patrones_de_diseño_proyecto;
+package patrones_de_diseño_proyecto;
 
 public abstract class BebidaDecorator implements Bebida {
     protected final Bebida bebidaEnvuelta;
